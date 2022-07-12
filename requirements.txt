@@ -1,0 +1,16 @@
+boto3==1.23.10
+botocore==1.26.10
+certifi==2022.5.18.1
+charset-normalizer==2.0.12
+greenlet==1.1.2
+idna==3.3
+jmespath==1.0.0
+numpy==1.22.3
+pandas==1.4.2
+psycopg2-binary==2.9.3
+python-dateutil==2.8.2
+pytz==2022.1
+s3transfer==0.5.2
+six==1.16.0
+SQLAlchemy==1.4.36
+urllib3==1.26.9
