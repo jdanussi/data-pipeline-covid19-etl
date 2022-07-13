@@ -111,7 +111,7 @@
       "EC2",
       "FARGATE"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:193063031661:task-definition/data-pipeline-covid19-task-definition:7",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:193063031661:task-definition/data-pipeline-covid19-task-definition:9",
     "family": "data-pipeline-covid19-task-definition",
     "requiresAttributes": [
       {
