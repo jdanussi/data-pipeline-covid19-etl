@@ -9,7 +9,7 @@
           "logDriver": "awslogs",
           "secretOptions": null,
           "options": {
-            "awslogs-group": "/ecs/FARGATE-profile",
+            "awslogs-group": "/ecs/FARGATE-etl",
             "awslogs-region": "us-east-1",
             "awslogs-stream-prefix": "ecs"
           }
@@ -38,6 +38,59 @@
         "disableNetworking": null,
         "interactive": null,
         "healthCheck": null,
+        "essential": false,
+        "links": null,
+        "hostname": null,
+        "extraHosts": null,
+        "pseudoTerminal": null,
+        "user": null,
+        "readonlyRootFilesystem": null,
+        "dockerLabels": null,
+        "systemControls": null,
+        "privileged": null,
+        "name": "python-etl"
+      },
+      {
+        "dnsSearchDomains": null,
+        "environmentFiles": null,
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "secretOptions": null,
+          "options": {
+            "awslogs-group": "/ecs/FARGATE-reporter",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        },
+        "entryPoint": null,
+        "portMappings": [],
+        "command": null,
+        "linuxParameters": null,
+        "cpu": 0,
+        "environment": [],
+        "resourceRequirements": null,
+        "ulimits": null,
+        "dnsServers": null,
+        "mountPoints": [],
+        "workingDirectory": null,
+        "secrets": null,
+        "dockerSecurityOptions": null,
+        "memory": null,
+        "memoryReservation": null,
+        "volumesFrom": [],
+        "stopTimeout": null,
+        "image": "193063031661.dkr.ecr.us-east-1.amazonaws.com/python-reporter:latest",
+        "startTimeout": null,
+        "firelensConfiguration": null,
+        "dependsOn": [
+          {
+            "containerName": "python-etl",
+            "condition": "SUCCESS"
+          }
+        ],
+        "disableNetworking": null,
+        "interactive": null,
+        "healthCheck": null,
         "essential": true,
         "links": null,
         "hostname": null,
@@ -48,18 +101,18 @@
         "dockerLabels": null,
         "systemControls": null,
         "privileged": null,
-        "name": "python-etl-container"
+        "name": "python-reporter"
       }
     ],
     "placementConstraints": [],
-    "memory": "512",
+    "memory": "2048",
     "taskRoleArn": "arn:aws:iam::193063031661:role/LabRole",
     "compatibilities": [
       "EC2",
       "FARGATE"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:193063031661:task-definition/python-etl-task-definition:9",
-    "family": "python-etl-task-definition",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:193063031661:task-definition/data-pipeline-covid19-task-definition:7",
+    "family": "data-pipeline-covid19-task-definition",
     "requiresAttributes": [
       {
         "targetId": null,
@@ -95,6 +148,12 @@
         "targetId": null,
         "targetType": null,
         "value": null,
+        "name": "ecs.capability.container-ordering"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
         "name": "ecs.capability.execution-role-ecr-pull"
       },
       {
@@ -119,8 +178,8 @@
       "operatingSystemFamily": "LINUX",
       "cpuArchitecture": null
     },
-    "cpu": "256",
-    "revision": 9,
+    "cpu": "1024",
+    "revision": 4,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,

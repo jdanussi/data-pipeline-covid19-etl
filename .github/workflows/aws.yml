@@ -88,8 +88,8 @@ jobs:
       with:
         # task-definition: ${{ env.ECS_TASK_DEFINITION }}
         # container-name: ${{ env.CONTAINER_NAME }}
-        task-definition: devops/python-etl-task-definition.json
-        container-name: python-etl-container
+        task-definition: devops/data-pipeline-covid19-task-definition.json
+        container-name: python-etl
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
@@ -98,6 +98,6 @@ jobs:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         # service: ${{ env.ECS_SERVICE }}
         # cluster: ${{ env.ECS_CLUSTER }}
-        service: python-etl-service
-        cluster: covid19-cluster
+        # service: python-etl-service
+        cluster: data-pipeline-cluster
         wait-for-service-stability: true
