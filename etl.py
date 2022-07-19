@@ -55,12 +55,12 @@ def download_from_aws(bucket, s3_file, local_file):
 # Setting up variables
 print("Setting up environment variables")
 AWS_REGION = 'us-east-1'
-S3_BUCKET = getParameter('/covid19/S3_BUCKET_DATASETS')
-DB_HOST = getParameter('/covid19/DB_HOST')
-DB_DATABASE = getParameter('/covid19/DB_DATABASE')
-DB_USER = getParameter('/covid19/DB_USER')
-DB_PASS = getParameter('/covid19/DB_PASS')
-DB_PORT = str(getParameter('/covid19/DB_PORT'))
+S3_BUCKET = getParameter('/cde/S3_BUCKET_DATASETS')
+DB_HOST = getParameter('/cde/DB_HOST')
+DB_DATABASE = getParameter('/cde/DB_DATABASE')
+DB_USER = getParameter('/cde/DB_USER')
+DB_PASS = getParameter('/cde/DB_PASS')
+DB_PORT = str(getParameter('/cde/DB_PORT'))
 
 
 # Get AWS credentials from ECS intance profile
